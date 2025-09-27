@@ -63,7 +63,8 @@ exports.createRating = async (req, res) => {
             message:error.message,
         })
     }
-};
+}
+
 
 //get avg- rating
 

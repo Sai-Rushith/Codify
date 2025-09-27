@@ -90,7 +90,7 @@ function Navbar() {
        
        { 
         user && user?.accountType !=="Instructor" && (
-             <Link to="/cart">
+             <Link to="dashboard/cart">
           <Button variant="secondary" className="bg-white text-black hover:bg-gray-100">
             Cart
           </Button>

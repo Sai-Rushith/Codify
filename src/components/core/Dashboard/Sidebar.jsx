@@ -28,7 +28,7 @@ export default function Sidebar({ onNavigate = () => {} }) {
 const nav = user.accountType === "Student"
   ? [
       { id: 'my-profile', label: 'My Profile', icon: User },
-      { id: 'courses',    label: 'Enrolled Courses', icon: BookOpen },
+      { id: 'enrolled-courses',    label: 'Enrolled Courses', icon: BookOpen },
       { id: 'cart',       label: 'Cart', icon: ShoppingCart },
     ]
   : [
@@ -36,7 +36,7 @@ const nav = user.accountType === "Student"
       { id: 'dashboard',  label: 'Dashboard', icon: Gauge },
       { id: 'my-course',  label: 'My Course', icon: Airplay },
       { id: 'add-course', label: 'Add Course', icon: CopyPlus },
-    ];
+    ];  
 
 
   function handleNav(id) {

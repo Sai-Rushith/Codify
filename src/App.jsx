@@ -16,14 +16,37 @@ import Dashboard from "./pages/Dashboard"
 import MyProfile from "./components/core/Dashboard/MyProfile"
 import PrivateRoute from "./components/core/Auth/PrivateRoute"
 import Settings from "./components/core/Dashboard/Settings/index"
+import { ACCOUNT_TYPE } from "./util/constants";
+import AddCourse from "./components/core/Dashboard/AddCourse";
+import {  useSelector } from "react-redux";
+
+import MyCourses from "./components/core/Dashboard/MyCourses";
+import EditCourse from "./components/core/Dashboard/EditCourse";
+
+import Catalog from "./pages/Catalog";
+import CourseDetails from "./pages/CourseDetails"
+
+import Cart from "./components/core/Dashboard/Cart";
+
+import EnrolledCourses from "./components/core/Dashboard/EnrolledCourses"
+
+import ViewCourse from "./pages/ViewCourse"
+import VideoDetails from "./components/core/ViewCourse/VideoDetails"
+
+import Instructor from "./components/core/Dashboard/InstructorDashboard/Instructor";
 
 function App() {
+    
+    
+  const { user } = useSelector((state) => state.profile)
+   
   return (
    <div>
     <Navbar/>
  <Routes>
  
  <Route path="/" element ={<Home/>}/>
+  <Route path="catalog/*" element={<Catalog/>} />
  <Route path="/catalog" element = {<CourseFilter/>}/>
  <Route path="/login" element = {<Login/>}/>
  <Route path="/signup" element = {<Signup/>}/>
@@ -34,6 +57,7 @@ function App() {
  <Route path="/terms" element = {<Terms/>}/>
  <Route path="/privacy" element = {<Privacy/>}/>
  <Route path="/contact" element = {<ContactUs/>}/>
+ <Route path="courses/:courseId" element = {<CourseDetails/>}/>
  {/* <Route path="/dashboard/my-profile" element={<Dashboard/>}/> */}
  
  
@@ -49,29 +73,46 @@ function App() {
       <Route path="dashboard/Settings" element={<Settings />} />
       
 
-      {/* {
+      {
         user?.accountType === ACCOUNT_TYPE.STUDENT && (
           <>
           <Route path="dashboard/cart" element={<Cart />} />
           <Route path="dashboard/enrolled-courses" element={<EnrolledCourses />} />
           </>
         )
-      } */}
-{/* 
+      }
+
       {
         user?.accountType === ACCOUNT_TYPE.INSTRUCTOR && (
           <>
-          <Route path="dashboard/instructor" element={<Instructor />} />
+          <Route path="dashboard/dashboard" element={<Instructor />} />
           <Route path="dashboard/add-course" element={<AddCourse />} />
-          <Route path="dashboard/my-courses" element={<MyCourses />} />
+          <Route path="dashboard/my-course" element={<MyCourses />} />
           <Route path="dashboard/edit-course/:courseId" element={<EditCourse />} />
           
           </>
         )
-      } */}
+      }
 
 
     </Route>
+// AppRoutes (or wherever you define routes)
+<Route
+  path="view-course/:courseId"
+  element={
+    <PrivateRoute>
+      <ViewCourse />
+    </PrivateRoute>
+  }
+>
+  {user?.accountType === ACCOUNT_TYPE.STUDENT && (
+    <Route
+      path="section/:sectionId/sub-section/:subSectionId"
+      element={<VideoDetails />}
+    />
+  )}
+</Route>
+
 
 
  </Routes>
