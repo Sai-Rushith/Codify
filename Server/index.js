@@ -26,7 +26,7 @@ app.use(express.json());
 app.use(cookieParser());    
 app.use(
 	cors({
-		origin:"https://codify-inky.vercel.app/",
+		origin:"https://codify-inky.vercel.app",
 		credentials:true,
 	})
 )
