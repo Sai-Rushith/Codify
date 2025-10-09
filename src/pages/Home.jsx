@@ -12,6 +12,7 @@ import CodeBlocks from "../components/core/HomePage/CodeBlocks"
 import HighlightText from "../components/core/HomePage/HighlightText"
 import image1 from "../assets/Images/codingimage1.jpg"
 
+
 import LearningLanguageSection from "../components/core/HomePage/LearningLanguageSection"
 
 const Home = () => {

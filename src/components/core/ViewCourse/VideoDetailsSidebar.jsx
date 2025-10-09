@@ -6,7 +6,7 @@ import { useLocation, useNavigate, useParams } from "react-router-dom"
 
 import IconBtn from "../../common/IconBtn1"
 
-export default function VideoDetailsSidebar({ setReviewModal }) {
+export default function VideoDetailsSidebar({ setReviewModal }) { 
   const navigate = useNavigate()
   const location = useLocation()
   const { sectionId, subSectionId } = useParams()

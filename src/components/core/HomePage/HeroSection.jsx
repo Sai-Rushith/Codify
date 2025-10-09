@@ -1,4 +1,4 @@
-import { Button } from "./ui/Button"
+import { Button } from "../"
 import { InteractiveGrid } from "./ui/InteractiveGrid"
 import { ShineBorder } from "./ui/ShineBorder"
 import { Play } from "lucide-react"
